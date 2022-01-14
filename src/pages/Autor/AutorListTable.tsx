@@ -6,8 +6,8 @@ import styles from './Autor.module.css';
 import api from "../../Api";
 
 export default function List() {
-  const [autor, setAutor] = React.useState(null);
-  const [error, setError] = React.useState(null);
+  const [autor, setAutor]: any = React.useState(null);
+  const [error, setError]: any = React.useState(null);
   
   React.useEffect(() => {
     api.get("/autor").then((response) => {
@@ -20,7 +20,7 @@ export default function List() {
   if (error) return `Erro: ${error.message}`;
   if (!autor) return "Autor não encontrada!";
 
-  const autores = autor.map((autor) =>
+  const autores: any = autor.map((autor: any) =>
    <table className={styles.card} key={autor.Codautor}>
       <tbody className={styles.info} >
         <tr className={styles.codigo}>{autor.Codautor}</tr>

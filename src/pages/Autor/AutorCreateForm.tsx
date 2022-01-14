@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom";
 import api from "../../Api";
 import Container from "../../layout/Container";
 import Form from "../../layout/Componentes/Form";
-import { useState } from 'react/cjs/react.development';
 
 export default function Create() {
  
-  const [autor, setAutor] = React.useState(null);
-  const [error, setError] = React.useState(null);
-  const [values, setValues] = useState({});
+  const [autor, setAutor]: any = React.useState(null);
+  const [error, setError]: any = React.useState(null);
+  const [values, setValues]: any = React.useState({});
 
   const navigate = useNavigate();
 
@@ -21,12 +20,12 @@ export default function Create() {
     });
   }, []);
   
-  function onChange(ev){
+  function onChange(ev: any){
       const {name, value} = ev.target;
       setValues({...values, [name]: value})
   }
  
-  function createAutor(ev) {
+  function createAutor(ev: any) {
       ev.preventDefault();
       api.post("/autor", values)
           .then((response) => {

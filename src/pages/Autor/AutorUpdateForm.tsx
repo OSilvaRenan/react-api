@@ -9,8 +9,8 @@ export default function Update() {
   // const autor = {Codautor: 0, Nomautor: '', Codintegracao: '', Dscautor: ''};
   // setState({autor});
   
-  const [autor, setAutor] = useState({Codautor: 0, Nomautor: '', Codintegracao: '', Dscautor: ''});
-  const [error, setError] = useState(null);
+  const [autor, setAutor]: any = useState({Codautor: 0, Nomautor: '', Codintegracao: '', Dscautor: ''});
+  const [error, setError]: any = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
   // const [values, setValues] = useState({});
@@ -24,7 +24,7 @@ export default function Update() {
 
   }, []);
 
-  function onChange(ev){
+  function onChange(ev: any){
     // const autor = {...this.state.autor};
     // autor[ev.target.name] = ev.target.value;
     // setAutor(autor);
@@ -38,7 +38,7 @@ export default function Update() {
     // this.setState({autor});
 }
 
-  function updateAutor(ev) {
+  function updateAutor(ev: any) {
      ev.preventDefault();
       api
       .put(`/autor/${autor.Codautor}`, autor)

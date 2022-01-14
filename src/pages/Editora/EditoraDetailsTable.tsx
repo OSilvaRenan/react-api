@@ -6,8 +6,8 @@ import api from "../../Api";
 
 
 export default function Details() {
-  const [editora, setEditora] = React.useState(null);
-  const [error, setError] = React.useState(null);
+  const [editora, setEditora]: any = React.useState(null);
+  const [error, setError]: any = React.useState(null);
   let { id } = useParams();
 
   React.useEffect(() => {

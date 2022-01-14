@@ -5,8 +5,8 @@ import {useParams, useNavigate, Link} from "react-router-dom";
 import styles from './Autor.module.css';
 
 export default function App() {
-  const [autor, setAutor] = React.useState(null);
-  const [error, setError] = React.useState(null);
+  const [autor, setAutor]: any = React.useState(null);
+  const [error, setError]: any = React.useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
 

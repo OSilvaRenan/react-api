@@ -7,8 +7,8 @@ import api from "../../Api";
 export default function Details() {
   let { id } = useParams();
  
-  const [autor, setAutor] = React.useState(null);
-  const [error, setError] = React.useState(null);
+  const [autor, setAutor]: any = React.useState(null);
+  const [error, setError]: any = React.useState(null);
 
   React.useEffect(() => {
     api.get(`/autor/${id}`).then((response) => {

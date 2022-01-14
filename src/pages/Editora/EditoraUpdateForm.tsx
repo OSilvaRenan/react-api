@@ -7,8 +7,8 @@ import Form from "../../layout/Componentes/Form";
 
 export default function Update() {
 
-  const [editora, setEditora] = useState(null);
-  const [error, setError] = useState(null);
+  const [editora, setEditora]: any = useState(null);
+  const [error, setError]: any = useState(null);
 
   const { id } = useParams();
   const navigate = useNavigate();

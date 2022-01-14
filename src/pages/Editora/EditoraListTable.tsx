@@ -6,8 +6,8 @@ import styles from './Editora.module.css';
 import api from "../../Api";
 
 export default function List() {
-  const [editora, setEditora] = React.useState(null);
-  const [error, setError] = React.useState(null);
+  const [editora, setEditora]: any = React.useState(null);
+  const [error, setError]: any = React.useState(null);
   
   React.useEffect(() => {
     api.get("/editora").then((response) => {
@@ -20,7 +20,7 @@ export default function List() {
   if (error) return `Erro: ${error.message}`;
   if (!editora) return "Editora não encontrada!";
 
-  const editoras = editora.map((editora) =>
+  const editoras:any = editora.map((editora: any) =>
    <table className={styles.card} key={editora.Codeditora}>
       <tbody className={styles.info} >
         <tr className={styles.codigo}>{editora.Codeditora}</tr>

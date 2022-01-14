@@ -2,14 +2,13 @@ import React from "react";
 import { useNavigate, Link} from "react-router-dom"; 
 import api from "../../Api";
 import Container from "../../layout/Container";
-import { useState } from 'react/cjs/react.development';
 import Form from "../../layout/Componentes/Form";
 
 export default function Create() {
 
-  const [editora, setEditora] = React.useState(null);
-  const [error, setError] = React.useState(null);
-  const [values, setValues] = useState({});
+  const [editora, setEditora]: any = React.useState(null);
+  const [error, setError]: any  = React.useState(null);
+  const [values, setValues]: any  = React.useState({});
 
   const navigate = useNavigate();
 

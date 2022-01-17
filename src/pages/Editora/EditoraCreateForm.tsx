@@ -3,10 +3,11 @@ import { useNavigate, Link} from "react-router-dom";
 import api from "../../Api";
 import Container from "../../layout/Container";
 import Form from "../../layout/Componentes/Form";
+import { Editora } from "../../Model/Editora";
 
 export default function Create() {
 
-  const [editora, setEditora]: any = React.useState(null);
+  const [editora, setEditora] = React.useState<Editora>();
   const [error, setError]: any  = React.useState(null);
   const [values, setValues]: any  = React.useState({});
 

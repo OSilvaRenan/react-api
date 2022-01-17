@@ -1,5 +1,5 @@
-export interface editora{
-    Codeditora: 0, 
-    Nomeditora: '', 
-    Codintegracao: ''
+export interface Editora{
+    Codeditora: number, 
+    Nomeditora: string, 
+    Codintegracao: string
 }

@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import api from "../../Api";
 import Container from "../../layout/Container";
 import Form from "../../layout/Componentes/Form";
+import { Autor } from "../../Model/Autor";
 
 export default function Create() {
  
-  const [autor, setAutor]: any = React.useState(null);
+  const [autor, setAutor] = React.useState<Autor>();
   const [error, setError]: any = React.useState(null);
   const [values, setValues]: any = React.useState({});
 

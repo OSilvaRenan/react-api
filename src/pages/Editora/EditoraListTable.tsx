@@ -4,10 +4,11 @@ import Container from "../../layout/Container";
 import { Link } from "react-router-dom";
 import styles from './Editora.module.css';
 import api from "../../Api";
+import { Editora } from "../../Model/Editora";
 
 export default function List() {
-  const [editora, setEditora]: any = React.useState(null);
-  const [error, setError]: any = React.useState(null);
+  const [editora, setEditora] = React.useState<Editora[]>([]);
+  const [error, setError]:any = React.useState();
   
   React.useEffect(() => {
     api.get("/editora").then((response) => {
@@ -20,7 +21,7 @@ export default function List() {
   if (error) return `Erro: ${error.message}`;
   if (!editora) return "Editora não encontrada!";
 
-  const editoras:any = editora.map((editora: any) =>
+  const editoras = editora.map((editora) =>
    <table className={styles.card} key={editora.Codeditora}>
       <tbody className={styles.info} >
         <tr className={styles.codigo}>{editora.Codeditora}</tr>

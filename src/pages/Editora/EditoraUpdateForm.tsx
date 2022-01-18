@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Container from "../../layout/Container";
 import {useParams, useNavigate} from "react-router-dom"; 
 import api from "../../Api";
-import Form from "../../layout/Componentes/Form";
+import FormEditora from "../../layout/Componentes/forms/FormEditora";
 
 
 export default function Update() {
@@ -45,7 +45,7 @@ export default function Update() {
 
   return (
     <Container>
-     <Form title="Editar Editora" tabela="editora" onChange={onChange} onSubmit={updateEditora} value={editora}/>
+     <FormEditora title="Editar Editora" tabela="editora" onChange={onChange} onSubmit={updateEditora} value={editora}/>
   </Container>
   );
 }

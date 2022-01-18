@@ -1,5 +1,6 @@
+import React from "react";
 import styles from './Form.module.css';
-import Input from "./Input";
+import Input from "../inputs/Input";
 import { Link } from 'react-router-dom';
 
 function Form(props: any){
@@ -29,7 +30,7 @@ function Form(props: any){
                         </Link>
                     </div>
                     <div className={styles.opcao}>
-                        <button type="submit" className={styles.sucesso}>Criar</button>
+                        <button type="submit" className={styles.sucesso}>{props.title}</button>
                     </div>
                 </div>
             </form>

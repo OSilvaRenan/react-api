@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Container from "../../layout/Container";
 import {useParams, useNavigate} from "react-router-dom"; 
 import api from "../../Api";
-import Form from "../../layout/Componentes/Form";
+import FormAutor from "../../layout/Componentes/forms/FormAutor";
 
 export default function Update() {
 
@@ -56,7 +56,7 @@ export default function Update() {
 
   return (
     <Container>
-        <Form title="Editar Autor" tabela="autor" onChange={onChange} onSubmit={updateAutor} value={autor}/>
+        <FormAutor title="Editar Autor" tabela="autor" onChange={onChange} onSubmit={updateAutor} value={autor}/>
     </Container>
   );
 }

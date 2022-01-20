@@ -1,0 +1,25 @@
+.links {
+    text-align: right;
+  }
+
+
+  .paginator {
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337AB7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    
+  }
+  
+  .paginator:hover {
+    background: #ddd;
+    text-decoration: none;
+  }
+
+  .paginator:active{
+    background: #ddd;
+  }

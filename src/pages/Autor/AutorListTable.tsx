@@ -1,15 +1,21 @@
 
-import React from "react";
+import React, { useState } from "react";
 import Container from "../../layout/Container";
 import { Link } from "react-router-dom";
 import styles from './Autor.module.css';
 import api from "../../Api";
 import * as AiIcons from 'react-icons/ai';
+import * as BiICons from 'react-icons/bi';
+import { Autor } from "../../Model/Autor";
+import Pagination from "../../layout/Componentes/Pagination";
+
 
 export default function List() {
-  const [autor, setAutor]: any = React.useState(null);
-  const [error, setError]: any = React.useState(null);
-  
+  const [autor, setAutor] = useState<Autor[]>([]);
+  const [error, setError]: any = useState(null);
+  const [itensPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(0);
+
   React.useEffect(() => {
     api.get("/autor").then((response) => {
       setAutor(response.data);
@@ -20,30 +26,11 @@ export default function List() {
 
   if (error) return `Erro: ${error.message}`;
   if (!autor) return "Autor não encontrado!";
-
-  const autores: any = autor.map((autor: any) =>
   
-   <tbody key={autor.Codautor}>
-     <tr>
-        <td>{autor.Codautor}</td>
-        <td >
-          <Link to={`/autor/details/${autor.Codautor}`} className={styles.link}>
-              {autor.Nomautor}
-          </Link> 
-        </td>
-         <td>
-          <Link to={`/autor/update/${autor.Codautor}`}>
-              <AiIcons.AiOutlineEdit  className={styles.icon}/>
-          </Link> 
-         </td>
-         <td>
-          <Link to={`/autor/delete/${autor.Codautor}`}> 
-              <AiIcons.AiOutlineRest  className={styles.icon}/>
-          </Link>
-         </td>
-     </tr>
-   </tbody>
-);
+  const pages = Math.ceil(autor.length / itensPerPage);
+  const startIndex = currentPage * itensPerPage ;
+  const endIndex = startIndex + itensPerPage;
+  const currentItens = autor.slice(startIndex, endIndex);
 
   return (
     <Container>
@@ -60,13 +47,34 @@ export default function List() {
             </tr>
           </thead>
           <tfoot>
-            <tr>
+            <tr> 
               <td colSpan={4}>
-                <div className={styles.links}><a href="#">&laquo;</a> <a className={styles.active} href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">&raquo;</a></div>
+                <Pagination pages={pages} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
               </td>
             </tr>
           </tfoot>
-          {autores}
+          <tbody >
+          { currentItens.map((autor: any) =>
+                <tr className={styles.linhas} key={autor.Codautor}>
+                  <td> {autor.Codautor}</td>
+                  <td >
+                    <Link to={`/autor/details/${autor.Codautor}`} className={styles.link}>
+                        {autor.Nomautor}
+                    </Link> 
+                  </td>
+                    <td>
+                    <Link to={`/autor/update/${autor.Codautor}`}>
+                        <AiIcons.AiOutlineEdit  className={styles.icon}/>
+                    </Link> 
+                    </td>
+                    <td>
+                    <Link to={`/autor/delete/${autor.Codautor}`}> 
+                        <BiICons.BiTrash  className={styles.icon}/>
+                    </Link>
+                    </td>
+                </tr>  
+          )}
+           </tbody>
       </table>
     </Container>
   );

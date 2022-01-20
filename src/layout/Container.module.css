@@ -1,7 +1,12 @@
 .container{
     margin: 10px;
+    margin-left: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: Verdana, Arial, sans-serif, sans-serif;
+    font-size: 14px;
+    color: #555555;
+    height: 100%;
 }
